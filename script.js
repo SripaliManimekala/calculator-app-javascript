@@ -31,7 +31,7 @@ function compute(operand) {
   const previousValue = parseFloat(prevDisplay.innerText);
   const currentValue = parseFloat(currDisplay.innerText);
 
-  if (isNaN(previousValue) || isNaN(currentValue)) return;
+  if (isNaN(previousValue)) return;
 
   switch (operation) {
     case "+":
@@ -50,7 +50,7 @@ function compute(operand) {
       result = previousValue / 100;
       break;
     case "sqrt":
-      result = previousValue * previousValue;
+      result = Math.sqrt(previousValue);
       break;
     case "sqr":
       result = previousValue * previousValue;
@@ -60,6 +60,7 @@ function compute(operand) {
   }
   currDisplay.innerText = result;
 }
+
 
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
